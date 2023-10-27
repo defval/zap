@@ -115,6 +115,10 @@ func (s *SugaredLogger) With(args ...interface{}) *SugaredLogger {
 	return &SugaredLogger{base: s.base.With(s.sweetenFields(args)...)}
 }
 
+func (s *SugaredLogger) WithLazy(args ...interface{}) *SugaredLogger {
+	return &SugaredLogger{base: s.base.WithLazy(s.sweetenFields(args)...)}
+}
+
 // Level reports the minimum enabled level for this logger.
 //
 // For NopLoggers, this is [zapcore.InvalidLevel].
